@@ -16,7 +16,7 @@ Features:-
 * Transaction timestamps
 
 Project Structure:-
-
+```text
 Bank-Management-System/
 │
 ├── Account.h
@@ -28,6 +28,7 @@ Bank-Management-System/
 ├── Transaction.txt
 ├── .gitignore
 └── README.md
+```
 
 Concepts Used:-
 * C++
@@ -55,7 +56,7 @@ Run the program:
 ./main
 
 Menu
-
+```text
 ====== Bank Management System ======
        1. Create Account
        2. Display All Accounts
@@ -64,6 +65,7 @@ Menu
        5. Check Balance
        6. All Transactions of an Account
        7. Exit
+```
 
 Data Storage:-
 
