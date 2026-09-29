@@ -51,7 +51,8 @@ int main(){
         cout<<"       4. Withdraw  Money\n";
         cout<<"       5. Check Balance\n";
         cout<<"       6. All Transactions of an Account\n";
-        cout<<"       7. Exit\n";
+        cout<<"       7. Bank Transfer\n";
+        cout<<"       8. Exit\n";
         cout<<"Enter your choice: ";
         val=getPositiveInteger();
         if(val==1){
@@ -153,6 +154,41 @@ int main(){
             bank.allTrans(accNo);
         }
         else if(val==7){
+            int selfAccNo;
+            cout<<"Enter your Account Number: ";
+            selfAccNo= getPositiveInteger();
+            Account* s= bank.findAccount(selfAccNo);
+            if(s==nullptr){
+                cout<<"Account Doesn't Exists!!!\n";
+            }
+            else{
+                int accNo;
+                cout<<"Enter Account Number Whom to Transfer: ";
+                accNo=getPositiveInteger();
+                Account* a= bank.findAccount(accNo);
+                if(a==nullptr){
+                    cout<<"Account Doesn't Exists!!!\n";
+                }
+                else{
+                    float amount;
+                    cout<<"Enter Amount to Transfer: ";
+                    amount= getPositiveFloat();
+                    if(amount>s->getBalance()){
+                        cout<<"Isufficient Balance!!!\n";
+                    }
+                    else{
+                        s->withdraw(amount);
+                        a->deposit(amount);
+                        cout<<"Transfer Successfull!!!\n";
+                        bank.writeData();
+                        bank.writeTransData(s,amount,"Transfer Out");
+                        bank.writeTransData(a,amount,"Transfer In");
+                    }
+                }
+            }
+            
+        }
+        else if(val==8){
             break;
         }
         else{
